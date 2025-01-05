@@ -78,6 +78,7 @@ const path = require('path');
 // const __dirname = path.resolve();
 
 // Import the routes
+const __dirname1 = path.resolve()
 const storiesRoutes = require('./routes/stories');
 const userRoutes = require("./routes/user-route");
 
@@ -118,15 +119,19 @@ app.use('/api/auth', userRoutes);
 
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/dist")));
+  app.use(express.static(path.join(__dirname1, "../client/dist")));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+    res.sendFile(path.join(__dirname1, "../client", "dist", "index.html"));
+  });
+} else {
+  app.get("*", (req, res) => {
+    res.send("Backend is running");
   });
 }
 
 // Start the server
-const PORT = process.env.PORT || 8401 ;
+const PORT = process.env.PORT || 8401;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
