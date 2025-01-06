@@ -6,7 +6,7 @@ import { useAuthStore } from "../store/useAuthStore";
 const Stories = () => {
   const navigate = useNavigate();
 
-  const { stories, approvedStory } = useAuthStore();
+  const { stories, checkAuth,approvedStory } = useAuthStore();
 
   const viewStory = (story) => {
     console.log("Navigating to story-detail with story:", story);
@@ -15,10 +15,11 @@ const Stories = () => {
 
   useEffect(() => {
     const funstory = async () => {
-      approvedStory();
+      await approvedStory();
+      await checkAuth();
     };
     funstory();
-  }, [approvedStory]);
+  }, [approvedStory,checkAuth]);
 
   const handlePublishClick = () => {
     navigate("/login");

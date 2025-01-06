@@ -27,6 +27,7 @@
         "@sanity/client": "^6.21.3",
         "axios": "^1.7.4",
         "dompurify": "^3.1.6",
+        "firebase": "^11.1.0",
         "framer-motion": "^11.3.24",
         "journey-story": "file:..",
         "js-cookie": "^3.0.5",
@@ -40,6 +41,7 @@
         "react-router": "^6.26.0",
         "react-router-dom": "^6.28.1",
         "server": "file:..",
+        "styled-components": "^6.1.14",
         "swiper": "^11.1.9",
         "zod": "^3.23.8",
         "zustand": "^5.0.2"

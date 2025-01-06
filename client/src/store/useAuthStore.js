@@ -1,7 +1,4 @@
 
-
-
-
 import { create } from "zustand";
 
 // Update to use import.meta.env
@@ -10,6 +7,12 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 export const useAuthStore = create((set, get) => ({
   authUser: null,
   stories: null,
+
+
+
+  setUser : (user) => {
+    set({authUser : user})
+  },
 
   // Dynamically determine the backend URL
   getBaseUrl: () => {
@@ -30,6 +33,7 @@ export const useAuthStore = create((set, get) => ({
         credentials: "include"
       });
 
+      console.log("hi nihal")
       const data = await response.json();
 
       if (!response.ok) {
@@ -42,6 +46,7 @@ export const useAuthStore = create((set, get) => ({
       console.log("error", error.message);
     }
   },
+
 
   login: async (details) => {
     try {
@@ -70,6 +75,7 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
+
   logout: async () => {
     try {
       const baseUrl = get().getBaseUrl() + '/api/auth/logout';
@@ -94,6 +100,7 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
+
   signup: async (details) => {
     console.log("details in authstore", details);
     try {
@@ -117,6 +124,7 @@ export const useAuthStore = create((set, get) => ({
       console.log("Error", error.message);
     }
   },
+
 
   publishStory: async (story) => {
     try {

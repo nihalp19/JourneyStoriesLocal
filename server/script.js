@@ -11,6 +11,7 @@ const path = require('path');
 
 
 const __dirname1 = path.resolve()
+console.log(__dirname1)
 const storiesRoutes = require('./routes/stories');
 const userRoutes = require("./routes/user-route");
 
@@ -28,9 +29,9 @@ app.use(cors({
 }));
 
 // Root route
-app.get('/', (req, res) => {
-  res.send('Backend is running');
-});
+// app.get('/', (req, res) => {
+//   res.send('Backend is running');
+// });
 
 // Cloudinary configuration
 cloudinary.config({
